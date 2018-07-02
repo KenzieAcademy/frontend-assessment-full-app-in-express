@@ -8,7 +8,14 @@
 </head>
 <body>
     <form id="user-create-form" action="./api/user" method="post">
-        
+        <div>
+            <label for="name">username:</label>
+            <input type="text" id="name" name="userName">
+          </div>
+          <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="userMail">
+          </div>
         <!-- Add user input fields here -->
 
         <button type="submit">Create User</button>
