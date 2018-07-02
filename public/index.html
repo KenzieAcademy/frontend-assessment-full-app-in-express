@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Create User</title>
 </head>
+
 <body>
     <form id="user-create-form" action="./api/user" method="post">
-        
-        <!-- Add user input fields here -->
-
+        <h3>Username</h3>
+        <input type="text" id="username">
+        <h3>Password</h3>
+        <input type="text" id="password">
+        <h3>E-Mail Address</h3>
+        <input type="text" id="email">
+        <h3>Favorite Pokemon</h3>
+        <input type="text" id="pokemon">
+        <h3>Pokemon Friend ID Number</h3>
+        <input type="text" id="friend">
         <button type="submit">Create User</button>
+        <script type="text/javascript" src="index.js"></script>
     </form>
 </body>
+
 </html>
