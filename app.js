@@ -12,7 +12,6 @@ const users = []
 const error = {
     message: "username already exists"
 }
-let usernameExists = false
 
 app.post('/api/user/', function (req, res) {
         const foundUser = users.find(user => {
