@@ -22,6 +22,7 @@ const clickEvent = function(event) {
     userCreatePassword.value,
     userCreateName.value
   );
+
   console.log(user);
 
   fetch('http://localhost:3000/api/user', {
@@ -31,16 +32,15 @@ const clickEvent = function(event) {
     },
     body: JSON.stringify(user),
   })
-    .then(function(response) {
+    .then(async function(response) {
       if (response.ok) {
         return response.json();
-      }
-      throw new Error('Network response was not ok.');
+      } else throw await response.json();
     })
     .then(data => {
-      console.log('Success:', data[0]);
+      console.log('Success:', data[data.length - 1].username + ' was added!');
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.log('Error:', error.message));
 };
 
 userCreateSubmitButton.addEventListener('click', clickEvent);
