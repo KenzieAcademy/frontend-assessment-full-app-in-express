@@ -27,12 +27,26 @@ function placeFormInfoIntoObject() {
     userInfo.pokemonFriendID = friendID.value
     userInfo.phoneNumber = phoneNumber.value
     userInfo.facebookURL = facebookURL.value
-    if(phonePreferred.checked){ userInfo.contactPreference = 'phone' }
-    if(textPreferred.checked){ userInfo.contactPreference = 'text' }
-    if(emailPreferred.checked){ userInfo.contactPreference = 'email' }
-    if(iphone.checked){ userInfo.devices.push("iphone") }
-    else if(android.checked){ userInfo.devices.push("android") }
-    else if(iphone.checked && android.checked){ userInfo.devices = "iphone" + "android" }
+    if (phonePreferred.checked) {
+        userInfo.contactPreference = 'phone'
+    }
+    if (textPreferred.checked) {
+        userInfo.contactPreference = 'text'
+    }
+    if (emailPreferred.checked) {
+        userInfo.contactPreference = 'email'
+    }
+    if (iphone.checked) {
+        userInfo.devices.push("iphone")
+    } else if (!iphone.checked) {
+        userInfo.devices.filter(arrayPosition => arrayPosition !== "iphone")
+    } else if (android.checked) {
+        userInfo.devices.push("android")
+    } else if (!android.checked) {
+        userInfo.devices.filter(arrayPosition => arrayPosition !== "android")
+    } else if (iphone.checked && android.checked) {
+        userInfo.devices = "iphone" + "android"
+    }
     stringifiedUserInfo = JSON.stringify(userInfo)
 
     fetch("./api/user/", {
@@ -43,7 +57,7 @@ function placeFormInfoIntoObject() {
             body: stringifiedUserInfo,
         })
         .then(async response => {
-            if(response.status !== 201){
+            if (response.status !== 201) {
                 throw await response.json()
             }
             let footer = document.getElementById("footer")
@@ -56,7 +70,7 @@ function placeFormInfoIntoObject() {
             footer.textContent = "ERROR " + error.message + ", please choose another username"
         })
 
-    }
+}
 
-    //Adding click to button
-    userCreateSubmitButton.addEventListener("click", placeFormInfoIntoObject)
+//Adding click to button
+userCreateSubmitButton.addEventListener("click", placeFormInfoIntoObject)
