@@ -5,8 +5,17 @@ const userEmail = document.getElementById("email")
 const favPokemon = document.getElementById("pokemon")
 const friendID = document.getElementById("friend")
 const password = document.getElementById("password")
-// const footer = document.getElementById("footer")
-let userInfo = {}
+const phoneNumber = document.getElementById("tel")
+const facebookURL = document.getElementById("facebook_URL")
+const phonePreferred = document.getElementById("buttonphone")
+const textPreferred = document.getElementById("buttontext")
+const emailPreferred = document.getElementById("buttonemail")
+const android = document.getElementById("android")
+const iphone = document.getElementById("iphone")
+
+let userInfo = {
+    devices: []
+}
 
 //Button Click Function
 function placeFormInfoIntoObject() {
@@ -16,6 +25,14 @@ function placeFormInfoIntoObject() {
     userInfo.userEmail = userEmail.value
     userInfo.favoritePokemon = favPokemon.value
     userInfo.pokemonFriendID = friendID.value
+    userInfo.phoneNumber = phoneNumber.value
+    userInfo.facebookURL = facebookURL.value
+    if(phonePreferred.checked){ userInfo.contactPreference = 'phone' }
+    if(textPreferred.checked){ userInfo.contactPreference = 'text' }
+    if(emailPreferred.checked){ userInfo.contactPreference = 'email' }
+    if(iphone.checked){ userInfo.devices.push("iphone") }
+    else if(android.checked){ userInfo.devices.push("android") }
+    else if(iphone.checked && android.checked){ userInfo.devices = "iphone" + "android" }
     stringifiedUserInfo = JSON.stringify(userInfo)
 
     fetch("./api/user/", {
