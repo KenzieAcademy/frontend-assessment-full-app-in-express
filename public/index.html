@@ -9,6 +9,17 @@
 <body>
     <form id="user-create-form" action="./api/user" method="post">
         
+        <div id="username-head">Username:</div>
+            <input id="username" type="text" name="username">
+
+        <div id="email-head">Email:</div>
+            <input id="email-input" type="email" name="email" multiple>
+
+        <div id="bck-col-head">Background Color:</div>
+            <div id="bkc-col-div"></div>
+            
+        <div id="fav-quot-head">Favorite Quote:</div>
+            <input id="fav-quot" type="text" name="quote">
         <!-- Add user input fields here -->
 
         <button type="submit">Create User</button>
