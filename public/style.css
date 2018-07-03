@@ -1,0 +1,36 @@
+form {
+    background-color: blanchedalmond;
+    width: 75vw;
+    height: 50vh;
+    border: 2px solid black;
+
+}
+
+button {
+    background-color: dimgrey;
+    color: aliceblue;
+}
+
+label {
+    font-size: x-large;
+}
+
+#name {
+    font-weight: bold;
+    margin: 10px;
+}
+
+#mail {
+    margin: 10px;
+    font-weight: bold;
+}
+
+#phone {
+    margin: 10px;
+    font-weight: bold;
+}
+
+#nickname {
+    margin: 10px;
+    font-weight: bold;
+}

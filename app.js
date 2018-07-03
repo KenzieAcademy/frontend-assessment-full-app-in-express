@@ -9,6 +9,7 @@ app.use(express.static(publicFolderPath))
 
 const users = []
 
+
 // add POST request listener here
 
 app.listen(3000);
