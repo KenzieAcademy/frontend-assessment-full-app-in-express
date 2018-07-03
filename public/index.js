@@ -5,7 +5,7 @@ const userEmail = document.getElementById("email")
 const favPokemon = document.getElementById("pokemon")
 const friendID = document.getElementById("friend")
 const password = document.getElementById("password")
-
+// const footer = document.getElementById("footer")
 let userInfo = {}
 
 //Button Click Function
@@ -29,12 +29,14 @@ function placeFormInfoIntoObject() {
             if(response.status !== 201){
                 throw await response.json()
             }
-
+            footer.textContent = ""
             return response.json()
         })
         .then(data => console.log(data))
         .catch(error => {
+            let footer = document.getElementById("footer")
             console.log("ERRORRRR", error)
+            footer.textContent = "ERROR " + error.message + ", please choose another username"
         })
 
     }
