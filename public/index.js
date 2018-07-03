@@ -16,18 +16,20 @@ obj = {
 let jsondata = JSON.stringify(obj);
 console.log(obj);
 console.log(jsondata);
-})
 
-const postData = (url = `http://localhost:3000/`, jsondata = {}) => {
+
+
     // Default options are marked with *
-      return fetch(url, {
+fetch("/api/user/", {
           method: "POST", // *GET, POST, PUT, DELETE, etc
           headers: {
               "Content-Type": "application/json; charset=utf-8",
               // "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: JSON.stringify(jsondata), // body data type must match "Content-Type" header
+          body: jsondata, // body data type must match "Content-Type" header
       })
-      .then(response => response.json()) // parses response to JSON
+      .then(response => response.json())
+      .then(data => {console.log("success")}) // parses response to JSON
       .catch(error => console.error(`Fetch Error =\n`, error));
-  };
+    }
+)
