@@ -1,5 +1,4 @@
 const userCreateForm = document.getElementById("user-create-form")
-const userCreateSubmitButton = userCreateForm.querySelector("button[type='submit']")
 const userName = document.getElementById("username")
 const userEmail = document.getElementById("email")
 const favPokemon = document.getElementById("pokemon")
@@ -12,49 +11,47 @@ const textPreferred = document.getElementById("buttontext")
 const emailPreferred = document.getElementById("buttonemail")
 const android = document.getElementById("android")
 const iphone = document.getElementById("iphone")
+const user = document.getElementById("user")
+const administrator = document.getElementById("administrator")
+const moderator = document.getElementById("moderator")
 
-let userInfo = {
-    devices: []
-}
 
 //Button Click Function
-function placeFormInfoIntoObject() {
+function placeFormInfoIntoObject(event) {
     event.preventDefault()
-    userInfo.userName = userName.value
-    userInfo.password = password.value
-    userInfo.userEmail = userEmail.value
-    userInfo.favoritePokemon = favPokemon.value
-    userInfo.pokemonFriendID = friendID.value
-    userInfo.phoneNumber = phoneNumber.value
-    userInfo.facebookURL = facebookURL.value
-    if (phonePreferred.checked) {
-        userInfo.contactPreference = 'phone'
-    }
-    if (textPreferred.checked) {
-        userInfo.contactPreference = 'text'
-    }
-    if (emailPreferred.checked) {
-        userInfo.contactPreference = 'email'
-    }
-    if (iphone.checked) {
-        userInfo.devices.push("iphone")
-    } else if (!iphone.checked) {
-        userInfo.devices.filter(arrayPosition => arrayPosition !== "iphone")
-    } else if (android.checked) {
-        userInfo.devices.push("android")
-    } else if (!android.checked) {
-        userInfo.devices.filter(arrayPosition => arrayPosition !== "android")
-    } else if (iphone.checked && android.checked) {
-        userInfo.devices = "iphone" + "android"
-    }
-    stringifiedUserInfo = JSON.stringify(userInfo)
+
+    const userInfo = JSON.stringify({
+        userName: userName.value,
+        password: password.value,
+        userEmail: userEmail.value,
+        favoritePokemon: favPokemon.value,
+        pokemonFriendID: friendID.value,
+        phoneNumber: phoneNumber.value,
+        facebookURL: facebookURL.value,
+        
+        contactPreference :
+            phonePreferred.checked
+                ? "phone" 
+            : textPreferred.checked
+                ? "text" 
+            : emailPreferred.checked
+                ? "email" 
+            : "email",
+
+        devices: {
+            iphone: Boolean(iphone.checked),
+            android: Boolean(android.checked),
+        },
+        
+    })
+
 
     fetch("./api/user/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: stringifiedUserInfo,
+            body: userInfo,
         })
         .then(async response => {
             if (response.status !== 201) {
@@ -73,4 +70,4 @@ function placeFormInfoIntoObject() {
 }
 
 //Adding click to button
-userCreateSubmitButton.addEventListener("click", placeFormInfoIntoObject)
+userCreateForm.addEventListener("submit", placeFormInfoIntoObject)
