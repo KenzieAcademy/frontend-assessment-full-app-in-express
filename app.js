@@ -20,6 +20,8 @@ app.post('/api/user', (req, res) => {
         req.body.id = Math.floor(Math.random() * 1000);
         users.push(req.body);
         res.send(req.body);
+        res.send(new Error("User successfully created!"))
+
 
     } else {
         res.status(409);

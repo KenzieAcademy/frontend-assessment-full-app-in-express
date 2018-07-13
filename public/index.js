@@ -1,20 +1,22 @@
 const userCreateForm = document.getElementById("user-create-form")
 const userCreateSubmitButton = userCreateForm.querySelector("button[type='submit']")
 
+
 userCreateForm.addEventListener("submit", submitForm);
+
+let user = {
+
+    name: document.getElementById("name").value,
+    birthdate: document.getElementById("DOB").value,
+    username: document.getElementById("username").value,
+    email: document.getElementById("email").value,
+
+}
 
 
 function submitForm(event) {
     event.preventDefault();
 
-    let user = {
-
-        name: document.getElementById("name").value,
-        birthdate: document.getElementById("DOB").value,
-        username: document.getElementById("username").value,
-        email: document.getElementById("email").value,
-
-    }
     console.log(user)
 
     const postMethod = {
@@ -27,7 +29,7 @@ function submitForm(event) {
     };
 
 
-    fetch("http://localhost:3000/api/user", postMethod)
+    fetch("/api/user", postMethod)
 
         .then(async function (response) {
             if (!response.ok) {
