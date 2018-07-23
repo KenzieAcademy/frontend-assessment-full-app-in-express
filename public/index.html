@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create User</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
 </head>
 <body>
     <form id="user-create-form" action="./api/user" method="post">
@@ -16,13 +17,17 @@
             <input id="email-input" type="email" name="email" multiple>
 
         <div id="bck-col-head">Background Color:</div>
-            <div id="bkc-col-div"></div>
-            
+            <div id="bck-col-div"></div>
+
         <div id="fav-quot-head">Favorite Quote:</div>
             <input id="fav-quot" type="text" name="quote">
         <!-- Add user input fields here -->
 
         <button type="submit">Create User</button>
     </form>
+
+    <div id="all-users-div"></div>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
