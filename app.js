@@ -22,16 +22,13 @@ app.post('/api/user/', (req, res) => {
         }
     }
     if (duplicateFound){
-        res.status(409).end();
         
+        res.status(409).end();
         
     } else {
         users.push(req.body);
-        
         res.status(201).end();
     }
-    
-
     
 });
 
