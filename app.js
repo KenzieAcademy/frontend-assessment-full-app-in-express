@@ -20,6 +20,7 @@ app.post('/api/user/', (req, res) => {
             duplicateFound = true;
             break;
         }
+        
     }
     if (duplicateFound){
         
