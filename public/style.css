@@ -1,0 +1,29 @@
+
+h1{
+    color: blue;
+    font-family: 'Raleway', sans-serif;
+
+}
+p{
+    color: blue;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+h3 {
+    color: blue;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer {
+    color: blue;
+    font-family: 'Raleway', sans-serif;
+}
