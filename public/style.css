@@ -1,0 +1,39 @@
+#bck-col-div {
+    display: flex;
+}
+
+#c0 {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+#c1 {
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+}
+
+#c2 {
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+}
+
+#c3 {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+
+#c4 {
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+}
+
+#c5 {
+    width: 40px;
+    height: 40px;
+    background-color: purple;
+}
